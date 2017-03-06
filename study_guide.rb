@@ -11,7 +11,7 @@
 #   end
 # end
 
-# wall_e = Robot.new("Wall-e", "trash_compactor") # Robot object
+# wall_e = Robot.new("Wall-e", "trash compactor") # Robot object
 
 # # attr_* to create setter and getter methods and how to call them:
 
@@ -110,13 +110,14 @@ class Robot < Machine
   end
 end
 
-wall_e = Robot.new("Wall-e", "trash_compactor") # Robot object
+wall_e = Robot.new("Wall-e", "trash compactor") # Robot object
 wall_e.oil
 p Robot.ancestors
 p Robot.test
 
 # method lookup path
 
+# if class dont have initialize method, the method lookup path goes to super class
 # first class, then module, then superclass, then module, then superclass ...
 # if I call a method on a Robot object, the lookup path is Robot, Machine, Oilable, Object, Kernel, BasicObject
 # A way of seeing that is calling #ancestors on the class
@@ -129,7 +130,17 @@ p Robot.test
 
 # we can actually call any method with self, but for when in the right scope it's not necessary
 
-# being able to read OO code
+# being able to read OO code: understand what is happening
 
-# fake operators
+# fake operators: special syntax allow us to write some methods more naturally
+# not all operators are methods
+# we can override/ create functionality for fake operators. GOOD
+# but opens a world of possibilities as to what it can mean. BAD
+# powerful but dangerous.
+# overriding the == method also gives us the != method.
+# the default implementation of ==, in BasicObject, is the same as equal?
+# Range#=== is used for equality comparison in case statements
 
+# truthiness
+# expressions or method calls after a if/unless are gonna evaluate to true or false
+# short circuit behavior of logical  operators
