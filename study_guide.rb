@@ -2,6 +2,8 @@
 
 # # classes and objects
 
+# classes group common behavior and objects encapsulate state. 
+
 # # - defining a class and instantiating it:
 
 # class Robot
@@ -144,3 +146,28 @@ p Robot.test
 # truthiness
 # expressions or method calls after a if/unless are gonna evaluate to true or false
 # short circuit behavior of logical  operators
+# everything is truthy other than false or nil
+# note that an expression that ruby considers true is not the same as the true  object
+
+# working with collaborator objects
+
+# any object can be used to represent another object's state.
+class Camera
+end
+
+class Robot
+  attr_reader :camera
+  def initialize(name, description)
+    @name = name
+    @description = description
+    @camera = Camera.new
+  end
+end
+
+p Robot.new('Marvin', 'paranoid android').camera
+
+# how blocks work and when we'd want to use them
+# blocks are chunks of code you'll want to execute at a later time
+# yielded to methods
+# give the user of your method flexibility to decide some functionality
+# by injecting additional code without modifying the method implementation
